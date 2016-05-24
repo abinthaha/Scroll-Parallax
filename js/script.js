@@ -1,5 +1,10 @@
 var TopPosArray = [];
 $(document).ready(function () {
+
+	var winHeight = $(window).height();
+	$('.contents section').css('height', winHeight+'px');
+
+
 	var body = $("html, body"),
 		st = $(document).scrollTop(),
 		flag = true;
@@ -13,7 +18,9 @@ $(document).ready(function () {
 		var current = $('#navigator .active'),
 			index = current.index(),
 			st = $(document).scrollTop();
-		if (st > TopPosArray[index+1]) {
+
+		console.log(st);
+		if (st >= TopPosArray[index+1]) {
 			current.removeClass('active');
 			current.next().addClass("active");
 		}
