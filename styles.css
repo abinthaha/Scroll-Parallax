@@ -2,7 +2,7 @@ html, body {
 	padding: 0;
 	margin: 0;
 }
-#s1, #s2, #s3, #s4, #s5 {
+#s1, #s2, #s3, #s4, #s5, #s6, #s7, #s8, #s9 {
 	height: 768px;
 	transition: all 0.3s linear;
 	width: 100%;
