@@ -1,5 +1,10 @@
 var TopPosArray = [];
 $(document).ready(function () {
+
+	setTimeout(function(){
+		$('#loader-wrapper').addClass('displayNone');
+	}, 3000);
+
 	var winHeight = $(window).height(),
 		body = $("html, body"),
 		st = $(document).scrollTop(),
