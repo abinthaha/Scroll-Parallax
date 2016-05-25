@@ -49,7 +49,7 @@ $(document).ready(function () {
 			if (st%winHeight > winHeight/2) {
 				scrollFlag = true;
 			}
-			else if((st%winHeight < winHeight/2) && (scrollFlag)) {
+			else if((st%winHeight < (winHeight/4)*3) && (scrollFlag)) {
 				body.animate({scrollTop:TopPosArray[index-1]+1}, 'slow');
 				current.removeClass('active');
 				current.prev().addClass("active");
