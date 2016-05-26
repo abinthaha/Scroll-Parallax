@@ -3,7 +3,7 @@ $(document).ready(function () {
 
 	setTimeout(function(){
 		$('#loader-wrapper').addClass('displayNone');
-	}, 3000);
+	}, 500);
 
 	var winHeight = $(window).height(),
 		body = $("html, body"),
@@ -32,29 +32,37 @@ $(document).ready(function () {
 			index = current.index(),
 			st = $(document).scrollTop();
 			
-		if (st > oldPos) {
-			oldPos = st;
-			if (st%winHeight < winHeight/2) {
-				scrollFlag = true;
-			}
-			else if((st%winHeight > winHeight/2) && (scrollFlag)) {
-				body.animate({scrollTop:TopPosArray[index+1]+1}, 'slow');
-				current.removeClass('active');
-				current.next().addClass("active");
-				scrollFlag = false;
-			}
+		// if (st > oldPos) {
+		// 	oldPos = st;
+		// 	if (st%winHeight < winHeight/2) {
+		// 		scrollFlag = true;
+		// 	}
+		// 	else if((st%winHeight > winHeight/2) && (scrollFlag)) {
+		// 		body.animate({scrollTop:TopPosArray[index+1]+1}, 'slow');
+		// 		current.removeClass('active');
+		// 		current.next().addClass("active");
+		// 		scrollFlag = false;
+		// 	}
+		// }
+		// else {
+		// 	oldPos = st;
+		// 	if (st%winHeight > winHeight/2) {
+		// 		scrollFlag = true;
+		// 	}
+		// 	else if((st%winHeight < (winHeight/4)*3) && (scrollFlag)) {
+		// 		body.animate({scrollTop:TopPosArray[index-1]+1}, 'slow');
+		// 		current.removeClass('active');
+		// 		current.prev().addClass("active");
+		// 		scrollFlag = false;
+		// 	}
+		// }
+		if (st >= TopPosArray[index+1]) {
+			current.removeClass('active');
+			current.next().addClass("active");
 		}
-		else {
-			oldPos = st;
-			if (st%winHeight > winHeight/2) {
-				scrollFlag = true;
-			}
-			else if((st%winHeight < (winHeight/4)*3) && (scrollFlag)) {
-				body.animate({scrollTop:TopPosArray[index-1]+1}, 'slow');
-				current.removeClass('active');
-				current.prev().addClass("active");
-				scrollFlag = false;
-			}
+		else if (st < TopPosArray[index]) {
+			current.removeClass('active');
+			current.prev().addClass("active");
 		}
 	});
 
